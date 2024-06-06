@@ -2,10 +2,6 @@
 int main()
 {
 
-
-
-
-
-	printf("code1\n");
+	printf("hahaha\n");
 	return 0;
 }
