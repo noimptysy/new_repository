@@ -79,3 +79,11 @@ Markdowm,文本修饰语言，用特殊符号修饰正文效果<dr>
 	ps aux
 	ls -al
 ```
+
+### 超链接
+
+[github](https://github.com "点击访问")
+
+### 插入图片
+
+![测试](C://Users//24228//Desktop//1.png)
