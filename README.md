@@ -40,9 +40,11 @@
   仓库管理软件，使用git管理私人代码或企业代码
 ![图片2](https://i.postimg.cc/sDNsNwVX/2.png)
   
+---
+
 ## 设备认证
 
-1. 让网站的账户与设备绑定，后续完成代码的管理。上传下载
+##1. 让网站的账户与设备绑定，后续完成代码的管理。上传下载
 ```bash
 	git init // 创建本地仓库 \*后续对仓库的操作，都要在仓库位置（master）
 ```
@@ -50,22 +52,69 @@
 	git config --list //查看git的配置文件
 ```
 
-* 修改或添加config配置项
+### 修改或添加config配置项
 ```bash
 	git config --global user.name //用户名
 	git config --global user.email //注册邮箱
 ```
-* 生成本机设备密文
+### 生成本机设备密文
 ```bash
 	ssh-keygen -t rsa -c "注册邮箱"
 ```
 rsa.pub复制密文，粘贴到setting-> SSH key and GPG -> new ssh key -> 粘贴
-* 测试关联是否成功
+### 测试关联是否成功
 ```bash 
 	ssh -T git@github.com # ssh远程登录
 ```
-2. 为目标仓库起别名，定位目标仓库，后续上传
+## 2. 为目标仓库起别名，定位目标仓库，后续上传
+```bash 
+	git remote add orgin(别名) SSH地址(云端仓库地址)
 
+	git remote remove origin #删除地址别名
+```
+### 本地设备与云端仓库交互逻辑
+![图片3](https://i.postimg.cc/jjZbyXkt/3.png)
+![图片4](https://i.postimg.cc/76jYT9fb/4.png)
+![图片5](https://i.postimg.cc/BbDZ5FKp/5.png)
+![图片6](https://i.postimg.cc/rytp2BP4/6.png)
+```bash
+	git add code..c #添加内容
+
+	#将缓冲区数据提交到本地仓库
+	git commit #提交到本地仓库
+	git commit -m "备注消息" #生成提交记录
+
+	git push origin(云端仓库地址) master #将本地仓库内容推到云端仓库
+
+	git status #查看状态
+
+	git rm code.c #删除本地文件及仓库中文件
+
+	git restore code.c #复位误删除文件（仓库中存在）
+```
+### 代码更新的依赖关系被破坏
+ 
+  本地内容要比云端新，完成更新替换，但是如果直接修改云端内容，导致本地内容无法再次提交
+  **先拉取git pull云端内容与本地内容合并或操作，而后再次推即可**
+```bash
+	git pull --rebase origin master
+```
+```bash
+	git rebase --about #忽略新版，此时不能直接上传
+
+	git rebase ---skip #忽略旧版，更新本地后可直接上传
+
+	git rebase --continue #版本合并，解决冲突后可直接上传
+```
+### 下载开源代码
+```bash
+	git clone ”https仓库地址“ #下载开源项目code资源
+```
+### 分支Branch
+
+  关于分支的相关命令，创建分支，选择分支，合并分支等等
+
+---
 
 # Markdowm,文本修饰语言，用特殊符号修饰正文效果<dr>
 
