@@ -25,7 +25,49 @@
   \*不仅可以管理代码存储，便于多人开发协作
 ![图片1](https://i.postimg.cc/7PtVG2H7/1.png)
 
-Markdowm,文本修饰语言，用特殊符号修饰正文效果<dr>
+## 仓库内容
+
+  Code，资源存储，代码资源，二进制，项目管理脚本，许可证等等
+
+  issues，使用时遇到的bug或进行提交，等待反馈
+
+  README，使用markdown语言编写，工程自述文件，开发进度，版本更新，使用介绍等等
+
+  LICENSE许可证：GPL2.0，3.0.Apahce2.0，Mit，这些许可证，给使用者最大使用权限以及最少的限制
+
+## Git软件，分布式版本控制系统
+
+  仓库管理软件，使用git管理私人代码或企业代码
+![图片2](https://i.postimg.cc/sDNsNwVX/2.png)
+  
+## 设备认证
+
+1. 让网站的账户与设备绑定，后续完成代码的管理。上传下载
+```bash
+	git init // 创建本地仓库 \*后续对仓库的操作，都要在仓库位置（master）
+```
+```bash
+	git config --list //查看git的配置文件
+```
+
+* 修改或添加config配置项
+```bash
+	git config --global user.name //用户名
+	git config --global user.email //注册邮箱
+```
+* 生成本机设备密文
+```bash
+	ssh-keygen -t rsa -c "注册邮箱"
+```
+rsa.pub复制密文，粘贴到setting-> SSH key and GPG -> new ssh key -> 粘贴
+* 测试关联是否成功
+```bash 
+	ssh -T git@github.com # ssh远程登录
+```
+2. 为目标仓库起别名，定位目标仓库，后续上传
+
+
+# Markdowm,文本修饰语言，用特殊符号修饰正文效果<dr>
 
 ## 标题修饰符\#
 
